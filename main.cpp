@@ -11,10 +11,26 @@ int getSum(std::vector<int> &numbers)
     return sum;
 }
 
+double getAverage(std::vector<int> &numbers)
+{
+    if (numbers.empty())
+    {
+        throw std::runtime_error("Vector is empty");
+    }
+    int sum = getSum(numbers);
+    int vectorSize = numbers.size();
+    return sum / vectorSize;
+}
+
 int main()
 {
     std::vector<int> inputNumbers = {1, 2, 3, 4, 5, 8, 7, 8, 9, 10};
+
     int numbersSum = getSum(inputNumbers);
-    std::cout << numbersSum << std::endl;
+    int numbersAverage = getAverage(inputNumbers);
+
+    std::cout << "Sum of numbers: " << numbersSum << std::endl;
+    std::cout << "Average of numbers: " << numbersAverage << std::endl;
+
     return 0;
 }
